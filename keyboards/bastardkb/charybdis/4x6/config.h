@@ -30,6 +30,9 @@
 /* Trackball angle adjustment. */
 #define ROTATIONAL_TRANSFORM_ANGLE -25
 
+/* Reverse dragscroll */
+#define CHARYBDIS_DRAGSCROLL_REVERSE_Y
+
 /* RGB settings. */
 #ifdef RGB_MATRIX_ENABLE
 #    define RGB_MATRIX_LED_COUNT 58
