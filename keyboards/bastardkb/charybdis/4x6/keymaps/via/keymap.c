@@ -162,10 +162,10 @@ void matrix_scan_user(void) {
 #    endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
 #    ifdef CHARYBDIS_AUTO_SNIPING_ON_LAYER
-layer_state_t layer_state_set_user(layer_state_t state) {
-    charybdis_set_pointer_sniping_enabled(layer_state_cmp(state, CHARYBDIS_AUTO_SNIPING_ON_LAYER));
-    return state;
-}
+// layer_state_t layer_state_set_user(layer_state_t state) {
+//     charybdis_set_pointer_sniping_enabled(layer_state_cmp(state, CHARYBDIS_AUTO_SNIPING_ON_LAYER));
+//     return state;
+// }
 #    endif // CHARYBDIS_AUTO_SNIPING_ON_LAYER
 #endif     // POINTING_DEVICE_ENABLE
 
@@ -184,4 +184,26 @@ void shutdown_user(void) {
     rgb_matrix_set_color_all(RGB_RED);
     rgb_matrix_update_pwm_buffers();
 #endif // RGB_MATRIX_ENABLE
+}
+
+// Fancy layer colors
+layer_state_t layer_state_set_user(layer_state_t state) {
+    uint8_t layer      = get_highest_layer(state); // layer ID
+    uint8_t saturation = rgblight_get_sat();       // Current saturated color
+    uint8_t value      = rgblight_get_val();       // Current brightness value
+
+    if (layer == 1) {
+        rgblight_sethsv_noeeprom(180, saturation, value); // violet
+    } else if (layer == 2) {
+        rgblight_sethsv_noeeprom(0, saturation, value); // red
+    } else if (layer == 3) {
+        rgblight_sethsv_noeeprom(240, saturation, value); // pink
+    } else if (layer == 4) {
+        rgblight_sethsv_noeeprom(60, saturation, value); // green
+    } else {
+        // default layer
+        rgblight_sethsv_noeeprom(120, saturation, value); // aqua
+    }
+
+    return state;
 }
