@@ -89,13 +89,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_LOWER] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-      KC_ESC, LCAG(KC_F1), LCAG(KC_F2), LCAG(KC_F3), LCAG(KC_F4), LCAG(KC_F5), LCAG(KC_F6), LCAG(KC_F7), LCAG(KC_F8), LCAG(KC_F9), LCAG(KC_F10), _______,
+      KC_ESC, LCAG(KC_F1),LCAG(KC_F2),LCAG(KC_F3),LCAG(KC_F4), LCAG(KC_F5), LCAG(KC_F6), LCAG(KC_F7), LCAG(KC_F8), LCAG(KC_F9), LCAG(KC_F10), _______,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-      XXXXXXX, XXXXXXX,  XXXXXXX, KC_VOLU, XXXXXXX, XXXXXXX,   LCA(KC_Y), LCA(KC_U), LCA(KC_I), LCA(KC_O), LCAG(KC_F11), LCAG(KC_F12),
+      XXXXXXX,LCA(KC_Q),LCA(KC_W),LCA(KC_E),LCA(KC_R),LCA(KC_T),LCA(KC_Y), LCA(KC_U), LCA(KC_I), LCA(KC_O), LCAG(KC_F11),LCAG(KC_F12),
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-      KC_CAPS, XXXXXXX,  KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX,   LCA(KC_H), LCA(KC_J), LCA(KC_K), LCA(KC_L), DPI_RMOD, DPI_MOD,
+      KC_CAPS,LCA(KC_A),LCA(KC_S),LCA(KC_D),LCA(KC_F),LCA(KC_G),LCA(KC_H), LCA(KC_J), LCA(KC_K), LCA(KC_L), LCA(KC_SCLN),LCA(KC_QUOT),
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-      _______, XXXXXXX, XXXXXXX, KC_VOLD,  XXXXXXX, MEH(KC_F1),LCA(KC_N), LCA(KC_M), LCA(KC_COMMA), LCA(KC_DOT), XXXXXXX, KC_VOLD,
+      _______,LCA(KC_Z),LCA(KC_X),LCA(KC_C),LCA(KC_V),MEH(KC_F1),LCA(KC_N),LCA(KC_M), LCA(KC_COMMA), LCA(KC_DOT), LCA(KC_SLSH), _______,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                   _______, _______, _______,    _______, _______,
                                            _______, _______,    _______
@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
       _______, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT,  G(KC_0),   XXXXXXX, RGB_RMOD,RGB_TOG, RGB_MOD, XXXXXXX, EE_CLR,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-      _______, XXXXXXX, XXXXXXX, KC_VOLD,  XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, RGB_M_P, XXXXXXX, XXXXXXX, _______,
+      _______, XXXXXXX, XXXXXXX, KC_VOLD,  XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, RGB_M_P, XXXXXXX, DPI_RMOD, DPI_MOD,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                   _______, _______, _______,    _______, _______,
                                            _______, _______,    _______
