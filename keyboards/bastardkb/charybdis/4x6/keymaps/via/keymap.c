@@ -186,23 +186,47 @@ void shutdown_user(void) {
 #endif // RGB_MATRIX_ENABLE
 }
 
-// Fancy layer colors
+// // Fancy simple layer colors
+// layer_state_t layer_state_set_user(layer_state_t state) {
+//     uint8_t layer      = get_highest_layer(state); // layer ID
+//     uint8_t saturation = rgblight_get_sat();       // Current saturated color
+//     uint8_t value      = rgblight_get_val();       // Current brightness value
+
+//     if (layer == 1) {
+//         rgblight_sethsv_noeeprom(180, saturation, value); // violet
+//     } else if (layer == 2) {
+//         rgblight_sethsv_noeeprom(0, saturation, value); // red
+//     } else if (layer == 3) {
+//         rgblight_sethsv_noeeprom(240, saturation, value); // pink
+//     } else if (layer == 4) {
+//         rgblight_sethsv_noeeprom(60, saturation, value); // green
+//     } else {
+//         // default layer
+//         rgblight_sethsv_noeeprom(120, saturation, value); // aqua
+//     }
+
+//     return state;
+// }
+
 layer_state_t layer_state_set_user(layer_state_t state) {
     uint8_t layer      = get_highest_layer(state); // layer ID
     uint8_t saturation = rgblight_get_sat();       // Current saturated color
     uint8_t value      = rgblight_get_val();       // Current brightness value
 
     if (layer == 1) {
-        rgblight_sethsv_noeeprom(180, saturation, value); // violet
+        rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_layer_1_effect);
     } else if (layer == 2) {
+        rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
         rgblight_sethsv_noeeprom(0, saturation, value); // red
     } else if (layer == 3) {
+        rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
         rgblight_sethsv_noeeprom(240, saturation, value); // pink
     } else if (layer == 4) {
+        rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
         rgblight_sethsv_noeeprom(60, saturation, value); // green
     } else {
         // default layer
-        rgblight_sethsv_noeeprom(120, saturation, value); // aqua
+        rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_base_effect);
     }
 
     return state;
