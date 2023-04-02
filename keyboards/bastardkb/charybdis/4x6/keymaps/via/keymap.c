@@ -162,6 +162,7 @@ void matrix_scan_user(void) {
 #    endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
 #    ifdef CHARYBDIS_AUTO_SNIPING_ON_LAYER
+// HACK: Using it in below for custon colors
 // layer_state_t layer_state_set_user(layer_state_t state) {
 //     charybdis_set_pointer_sniping_enabled(layer_state_cmp(state, CHARYBDIS_AUTO_SNIPING_ON_LAYER));
 //     return state;
@@ -216,18 +217,14 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     if (layer == 1) {
         rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_layer_1_effect);
     } else if (layer == 2) {
-        rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-        rgblight_sethsv_noeeprom(0, saturation, value); // red
+        rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_layer_2_effect);
     } else if (layer == 3) {
-        rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-        rgblight_sethsv_noeeprom(240, saturation, value); // pink
+        rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_layer_3_effect);
     } else if (layer == 4) {
-        rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-        rgblight_sethsv_noeeprom(60, saturation, value); // green
+        rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_layer_4_effect);
     } else {
         // default layer
         rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_base_effect);
     }
-
     return state;
 }

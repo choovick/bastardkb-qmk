@@ -49,8 +49,8 @@
 //#    define ENABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT
 //#    define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_CYCLE_LEFT_RIGHT
 
-// Solid color as startup mode.
-#    define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_COLOR
+// Custom colors base as startup mode.
+#    define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_CUSTOM_base_effect
 
 // Slow swirl at startup.
 #    define RGB_MATRIX_DEFAULT_SPD 32
