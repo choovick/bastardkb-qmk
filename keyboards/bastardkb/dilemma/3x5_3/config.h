@@ -18,18 +18,9 @@
 
 #pragma once
 
-/* Key matrix configuration. */
-#define MATRIX_ROW_PINS \
-    { GP4, GP5, GP27, GP26 }
-#define MATRIX_COL_PINS \
-    { GP8, GP9, GP7, GP6, GP28 }
-
 /* Handedness. */
 #define SPLIT_HAND_PIN GP29
 #define SPLIT_HAND_PIN_LOW_IS_LEFT // High -> right, Low -> left.
-
-/* RGB settings. */
-#define RGB_DI_PIN GP10
 
 /* VBUS detection. */
 #define USB_VBUS_PIN GP19
@@ -60,17 +51,12 @@
 #define BOOTMAGIC_LITE_ROW_RIGHT 4
 #define BOOTMAGIC_LITE_COLUMN_RIGHT 0
 
-/* RGB settings. */
-#define RGBLED_NUM 72
-#define RGBLED_SPLIT \
-    { 36, 36 }
-
 /* RGB matrix support. */
 #ifdef RGB_MATRIX_ENABLE
 #    define SPLIT_TRANSPORT_MIRROR
-#    define RGB_MATRIX_LED_COUNT RGBLED_NUM
-#    define RGB_MATRIX_SPLIT RGBLED_SPLIT
-#    define RGB_MATRIX_MAXIMUM_BRIGHTNESS 200
+#    define RGB_MATRIX_LED_COUNT 72
+#    define RGB_MATRIX_SPLIT { 36, 36 }
+#    define RGB_MATRIX_MAXIMUM_BRIGHTNESS 50
 #    define RGB_DISABLE_WHEN_USB_SUSPENDED
 #    define RGB_MATRIX_KEYPRESSES
 #    define RGB_MATRIX_FRAMEBUFFER_EFFECTS
