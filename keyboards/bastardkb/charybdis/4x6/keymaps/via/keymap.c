@@ -211,8 +211,8 @@ void shutdown_user(void) {
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     uint8_t layer      = get_highest_layer(state); // layer ID
-    uint8_t saturation = rgblight_get_sat();       // Current saturated color
-    uint8_t value      = rgblight_get_val();       // Current brightness value
+    //uint8_t saturation = rgblight_get_sat();       // Current saturated color
+    //uint8_t value      = rgblight_get_val();       // Current brightness value
 
     if (layer == 1) {
         rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_layer_1_effect);
