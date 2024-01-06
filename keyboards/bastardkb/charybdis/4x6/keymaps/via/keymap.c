@@ -175,18 +175,6 @@ void matrix_scan_user(void) {
 void rgb_matrix_update_pwm_buffers(void);
 #endif
 
-void shutdown_user(void) {
-#ifdef RGBLIGHT_ENABLE
-    rgblight_enable_noeeprom();
-    rgblight_mode_noeeprom(1);
-    rgblight_setrgb(RGB_RED);
-#endif // RGBLIGHT_ENABLE
-#ifdef RGB_MATRIX_ENABLE
-    rgb_matrix_set_color_all(RGB_RED);
-    rgb_matrix_update_pwm_buffers();
-#endif // RGB_MATRIX_ENABLE
-}
-
 // // Fancy simple layer colors
 // layer_state_t layer_state_set_user(layer_state_t state) {
 //     uint8_t layer      = get_highest_layer(state); // layer ID
