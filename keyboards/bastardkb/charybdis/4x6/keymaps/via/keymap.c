@@ -55,11 +55,26 @@ static uint16_t auto_pointer_layer_timer = 0;
 #    define SNIPING KC_NO
 #endif // !POINTING_DEVICE_ENABLE
 
+//Tap Dance Declarations
+enum {
+  TD_ESC_CAPS = 0,
+  TD_LGUI_CTRLB
+};
+
+//Tap Dance Definitions
+tap_dance_action_t tap_dance_actions[] = {
+  //Tap once for Esc, twice for Caps Lock
+  [TD_ESC_CAPS]  = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS),
+  // Other declarations would go here, separated by commas, if you have them
+  [TD_LGUI_CTRLB]  = ACTION_TAP_DANCE_DOUBLE(KC_LGUI, LCTL(KC_B))
+};
+
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,   KC_7,   KC_8,     KC_9,    KC_0,    KC_DEL,
+      KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,   KC_7,   KC_8,     KC_9,    KC_0,    KC_DEL,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
       KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,   KC_U,   KC_I,     KC_O,    KC_P,    KC_BSLS,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
@@ -67,14 +82,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
       KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,   KC_M,   KC_COMM,  KC_DOT,  KC_SLSH, KC_RSFT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                        MO(LAYER_POINTER), KC_LGUI, KC_LALT,   LT(3, KC_BSPC), LT(LAYER_SYMBOLS, KC_SPACE),
+              MO(LAYER_POINTER), TD(TD_LGUI_CTRLB), KC_LALT,   LT(3, KC_BSPC), LT(LAYER_SYMBOLS, KC_SPACE),
                                    KC_RCTL, MO(LAYER_LOWER),   LT(LAYER_LOWER, KC_ENTER)
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
 
   [LAYER_POINTER] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-      KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
+      KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
       A(KC_TAB),KC_LGUI,KC_LALT, SNIPING, KC_BTN4, KC_BTN5,    KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_F11,  KC_F12,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
@@ -119,9 +134,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_SYMBOLS] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-      _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______,
+      KC_GRV , _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-      _______, KC_QUOT, KC_LT,   KC_GT,   KC_DQT,  KC_DOT,     KC_COMM, KC_AMPR, KC_LBRC, KC_RBRC, KC_PERC, _______,
+     S(KC_GRV), KC_QUOT, KC_LT,   KC_GT,   KC_DQT,  KC_DOT,     KC_COMM, KC_AMPR, KC_LBRC, KC_RBRC, KC_PERC, _______,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
       _______, KC_EXLM, KC_MINS, KC_PLUS, KC_EQL,  KC_UNDS,    KC_PIPE, KC_COLN, KC_LPRN, KC_RPRN, KC_QUES, _______,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
