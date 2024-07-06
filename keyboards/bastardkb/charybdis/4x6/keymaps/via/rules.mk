@@ -1,1 +1,4 @@
 VIA_ENABLE = yes
+# TODO: Custom rules
+RGB_MATRIX_CUSTOM_USER = yes
+TAP_DANCE_ENABLE = yes
