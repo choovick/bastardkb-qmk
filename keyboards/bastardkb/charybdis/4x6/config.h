@@ -18,6 +18,9 @@
 
 #pragma once
 
+/* TODO: Reverse dragscroll */
+#define CHARYBDIS_DRAGSCROLL_REVERSE_Y
+
 /* Trackball angle adjustment. */
 #define ROTATIONAL_TRANSFORM_ANGLE -25
 
